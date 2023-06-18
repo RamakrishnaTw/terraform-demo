@@ -1,0 +1,23 @@
+# local .terraform directories
+**/.terraform/*
+
+#keys
+**keys/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+#node modules
+**/node_modules/*
+
+#zip files
+*.zip
+
+
+*.terraform.lock.hcl*
+*backend.tf
+.DS_Store

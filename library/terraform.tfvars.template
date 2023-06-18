@@ -1,0 +1,38 @@
+#vpc
+availability_zones = 
+vpc_cidr           = 
+public_subnet_ids  = 
+private_subnet_ids = 
+
+#rds
+identifier        = 
+engine            = 
+engine_version    = 
+instance_class    = 
+allocated_storage = 
+db_name           = 
+username          = 
+password          = 
+
+#lambda
+function_name = 
+handler       = 
+runtime       = 
+filename     = 
+
+#api_gateway
+apiGateway_name = 
+api1_resource   = 
+http_method     = 
+api2_resource   = 
+
+#ec2_instance
+instance_type = 
+pb_key        = 
+My_ip         = 
+All_ip        = 
+AMIS = {
+    us-east-1  = 
+    ap-south-1 = 
+    eu-west-1  = 
+}
