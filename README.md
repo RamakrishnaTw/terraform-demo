@@ -21,6 +21,7 @@ Navigate to app folder and install node modules.
 ## Generating-ssh-keys
 To seed the data in RDS table initially, creating a Jump host(ec2) and below is key pair generation which will attached to instance.
 ```
+    mkdir keys && cd $_
     ssh-keygen -f <KeyName>
 ```
 Note: Generate in root project directory
