@@ -2,6 +2,8 @@
 
 The Terraform-demo project is 3-tier application architecture infra code of API Gateway + Lambda + RDS(postgre).
 
+<img width="567" alt="image" src="https://github.com/RamakrishnaTw/terraform-demo/assets/108268881/0d747b55-41e8-46a9-aea0-0e3b3f4a5d83">
+
 ## Pre-requisites
 
 1. **[Installing-app-modules](#Installing-app-modules)**
