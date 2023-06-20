@@ -29,10 +29,6 @@ module "lambda" {
   filename           = var.filename
   private_subnet_ids = module.vpc.private_subnets
   lambda_sg          = aws_security_group.Lambda-SG.id
-  db_name            = var.db_name
-  username           = var.username
-  password           = var.password
-  host               = module.rds.rds_host
 
   depends_on = [module.rds]
 }
@@ -58,6 +54,23 @@ module "ec2_instance" {
   ec2_sg        = aws_security_group.Rec2-instance.id
   pb_key        = var.pb_key
 
+}
+
+###################### AWS Secret Manager #########################
+
+resource "aws_secretsmanager_secret" "lib-db-credentials" {
+  name = "library-credentials"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "database_credentials_version" {
+  secret_id     = aws_secretsmanager_secret.lib-db-credentials.id
+  secret_string = jsonencode({
+    username = var.username,
+    password = var.password,
+    host     = module.rds.rds_host,
+    dbname   = var.db_name
+  })
 }
 
 resource "aws_security_group" "Rec2-instance" {

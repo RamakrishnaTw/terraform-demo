@@ -13,15 +13,6 @@ resource "aws_lambda_function" "lambda_function" {
     security_group_ids = [var.lambda_sg]
   }
 
-  environment {
-    variables = {
-      DB_USER     = var.username
-      DB_PASSWORD = var.password
-      DB_HOST     = var.host
-      DB_NAME     = var.db_name
-      DB_PORT     = 5432
-    }
-  }
 }
 
 
@@ -76,20 +67,3 @@ resource "aws_iam_role_policy_attachment" "secretReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 }
 
-###################### AWS Secret Manager #########################
-
-# resource "aws_secretsmanager_secret" "R-db-credentials" {
-#   name = "R-credentials"
-# }
-
-# resource "aws_secretsmanager_secret_version" "database_credentials_version" {
-#   secret_id     = aws_secretsmanager_secret.R-db-credentials.id
-#   secret_string = <<EOF
-# {
-#   "username": ${aws_db_instance.library-db.username},
-#   "password": ${aws_db_instance.library-db.password},
-#   "host": ${aws_db_instance.library-db.address},
-#   "dbname": ${aws_db_instance.library-db.db_name}
-# }
-# EOF
-# }

@@ -25,20 +25,3 @@ variable "private_subnet_ids" {
 variable "lambda_sg"{
   type = string
 }
-
-variable "db_name" {
-  type = string
-  default = "librarydb"
-}
-
-variable "username" {
-  type = string
-}
-
-variable "password" {
-  type = string
-}
-
-variable "host"{
-  type = string
-}

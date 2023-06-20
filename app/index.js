@@ -51,14 +51,14 @@ async function query (q) {
 //const secretName = '';
 const secretManager = new AWS.SecretsManager({ region: regionid });
 const data = await secretManager.getSecretValue({ SecretId: secretName }).promise();
-const secret = (data.SecretString);
+const secret = JSON.parse(data.SecretString);
 
 
 const client = new Client({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
+  user: secret.username,
+  password: secret.password,
+  host: secret.host,
+  database: secret.dbname,
   port: 5432
   });
 
